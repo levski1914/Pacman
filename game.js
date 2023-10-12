@@ -12,7 +12,7 @@ let fps = 30;
 let pacman;
 let oneBlockSize = 20;
 let wallColor = "#342DCA";
-let wallSpaceWidth = oneBlockSize / 1.3;
+let wallSpaceWidth = oneBlockSize / 1.6;
 let wallOffset = (oneBlockSize - wallSpaceWidth) / 2;
 let wallInnerColor = "black";
 
@@ -47,13 +47,23 @@ let map = [
   [1, 1, 1, 1, 1, 1, 1, 1, 1, 1, 1, 1, 1, 1, 1, 1, 1, 1, 1, 1, 1],
 ];
 
+let createNewPacman = () => {
+  pacman = new Pacman(
+    oneBlockSize,
+    oneBlockSize,
+    oneBlockSize,
+    oneBlockSize,
+    oneBlockSize / 5
+  );
+};
+
 let gameLoop = () => {
   update();
   draw();
 };
 let update = () => {
   //todo
-  //   pacman.moveProcess();
+  pacman.moveProcess();
 };
 
 let draw = () => {
@@ -116,16 +126,6 @@ let drawWalls = () => {
       }
     }
   }
-};
-
-let createNewPacman = () => {
-  pacman = new Pacman(
-    oneBlockSize,
-    oneBlockSize,
-    oneBlockSize,
-    oneBlockSize,
-    oneBlockSize / 5
-  );
 };
 
 createNewPacman();
